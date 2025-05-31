@@ -3,9 +3,6 @@ package myAdapter;
 
 import java.util.Vector;
 
-/**
- * Adapter per HList/HCollection basato su Vector di CLDC 1.1.
- */
 public class ListAdapter implements HList {
     private Vector vector;
 
@@ -18,6 +15,7 @@ public class ListAdapter implements HList {
         vector.insertElementAt(element, index);
     }
 
+    //inserisce tutti gli elementi della collezione c a partire dall'indice index
     public boolean addAll(int index, HCollection c) {
         boolean modified = false;
         HIterator it = c.iterator();
@@ -48,18 +46,21 @@ public class ListAdapter implements HList {
         return new ListAdapterListIterator(this, index);
     }
 
+    // Rimuove l'elemento all'indice specificato e lo restituisce
     public Object remove(int index) {
         Object obj = vector.elementAt(index);
         vector.removeElementAt(index);
         return obj;
     }
 
+    // Sostituisce l'elemento all'indice specificato con l'elemento dato e restituisce l'elemento rimosso
     public Object set(int index, Object element) {
         Object old = vector.elementAt(index);
         vector.setElementAt(element, index);
         return old;
     }
 
+    // Restituisce una  sottolista tra gli indici specificati
     public HList subList(int fromIndex, int toIndex) {
         ListAdapter sub = new ListAdapter();
         for (int i = fromIndex; i < toIndex; i++) {
@@ -175,5 +176,16 @@ public class ListAdapter implements HList {
             hashCode = 31 * hashCode + (obj == null ? 0 : obj.hashCode());
         }
         return hashCode;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < vector.size(); i++) {
+            if (i > 0) sb.append(", ");
+            sb.append(vector.elementAt(i));
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }

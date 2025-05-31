@@ -31,7 +31,10 @@ public class ListAdapterListIterator implements HListIterator {
     }
 
     public boolean hasPrevious() {
-        return cursor > 0;
+        if( cursor > 0) {
+            return true;
+        }
+        return false;
     }
 
     public Object previous() {
