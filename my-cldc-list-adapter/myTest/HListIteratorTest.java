@@ -2,6 +2,27 @@ package myTest;
 import myAdapter.*;
 
 public class HListIteratorTest {
+    /**
+     * Metodo principale di test per la classe ListAdapterListIterator.
+     * <p>
+     * Questo metodo esegue una serie di operazioni su una lista e sul relativo iteratore,
+     * mostrando il funzionamento dei principali metodi dell'iteratore:
+     * <ul>
+     *   <li>Creazione di una lista e di un iteratore associato</li>
+     *   <li>Aggiunta di elementi alla lista</li>
+     *   <li>Verifica della presenza di elementi successivi e precedenti</li>
+     *   <li>Recupero del prossimo e del precedente elemento</li>
+     *   <li>Recupero degli indici del prossimo e del precedente elemento</li>
+     *   <li>Rimozione di un elemento tramite l'iteratore</li>
+     *   <li>Aggiunta di un nuovo elemento tramite l'iteratore</li>
+     *   <li>Sostituzione di un elemento tramite l'iteratore</li>
+     *   <li>Stampa dello stato della lista e della posizione dell'iteratore dopo ogni operazione</li>
+     * </ul>
+     * L'output prodotto permette di verificare il corretto funzionamento dei metodi dell'iteratore
+     * e la coerenza dello stato della lista dopo ogni operazione.
+     *
+     * @param args argomenti da linea di comando (non utilizzati)
+     */
     public static void main(String[] args) {
 
         //creo una una lista 

@@ -1,4 +1,41 @@
-// implementazione di Hiterator per ListAdapter
+/**
+ * Implementazione dell'interfaccia {@code HIterator} per la classe {@link ListAdapter}.
+ * Questo iteratore consente l'accesso sequenziale agli elementi di un {@code ListAdapter} e supporta la rimozione degli elementi.
+ *
+ * <p>
+ * L'iteratore mantiene un cursore che punta al prossimo elemento da restituire e una variabile che memorizza l'ultimo elemento restituito.
+ * </p>
+ *
+ * @author Riccardo Buso
+ */
+
+/**
+ * Costruisce un nuovo {@code ListAdapterIterator} per il {@code ListAdapter} specificato.
+ *
+ * @param list il {@code ListAdapter} su cui iterare
+ */
+
+/**
+ * Restituisce {@code true} se l'iterazione ha altri elementi.
+ *
+ * @return {@code true} se ci sono altri elementi da iterare, {@code false} altrimenti
+ */
+
+/**
+ * Restituisce il prossimo elemento nell'iterazione.
+ *
+ * @return il prossimo elemento nell'iterazione
+ * @throws java.util.NoSuchElementException se l'iterazione non ha più elementi
+ */
+
+/**
+ * Rimuove dalla collezione sottostante l'ultimo elemento restituito da questo iteratore.
+ * Questo metodo può essere chiamato solo una volta per ogni chiamata a {@link #next()}.
+ *
+ * @throws IllegalStateException se il metodo {@code next} non è stato ancora chiamato,
+ *         oppure se il metodo {@code remove} è già stato chiamato dopo l'ultima chiamata al metodo {@code next}
+ */
+// implementazione di HIterator per ListAdapter
 package myAdapter;
 
 

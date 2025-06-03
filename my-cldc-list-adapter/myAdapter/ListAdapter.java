@@ -3,6 +3,23 @@ package myAdapter;
 
 import java.util.Vector;
 
+/**
+ * Una classe adapter che implementa l'interfaccia {@code HList} utilizzando un {@code Vector} come struttura dati sottostante.
+ * Questa classe fornisce metodi per manipolare una lista di oggetti, inclusa l'aggiunta, la rimozione, il recupero e la ricerca di elementi.
+ * Supporta inoltre operazioni in blocco ed estrazione di sottoliste.
+ *
+ * <p>
+ * Il {@code ListAdapter} è progettato per essere compatibile con le interfacce {@code HList} e {@code HCollection},
+ * fornendo un ponte tra le interfacce di collezione personalizzate e l'implementazione standard di {@code Vector}.
+ * </p>
+ *
+ * <p>
+ * Tutti i metodi sono implementati per seguire da vicino la semantica dell'interfaccia standard Java {@code List},
+ * ma adattati alle interfacce personalizzate utilizzate in questo progetto.
+ * </p>
+ *
+ * @author Riccardo Buso
+ */
 public class ListAdapter implements HList {
     private Vector vector;
 

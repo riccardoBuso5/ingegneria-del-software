@@ -22,7 +22,7 @@ This project provides an adapter for the Java 1.4.2 List interface, implemented 
 - **JUnit/**: Contains the JUnit library required for testing.
   - `junit-3.8.1.jar`: JUnit library.
 
-- **doc/**: Contains generated documentation in Javadoc and PDF formats.
+- **javadoc/**: Contains generated documentation in Javadoc and PDF formats.
 
 ## Usage
 
@@ -31,7 +31,3 @@ To compile and run the tests, ensure that the JUnit library is included in your 
 ## Documentation
 
 Detailed documentation for the adapter and its components can be found in the `doc/` directory, generated using Javadoc.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for more details.

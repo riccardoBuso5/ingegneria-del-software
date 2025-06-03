@@ -2,6 +2,34 @@
 package myAdapter;
 
 
+/**
+ * Implementazione di un iteratore bidirezionale per la classe ListAdapter.
+ * Questa classe permette di scorrere la lista sia in avanti che all'indietro,
+ * e di modificare la lista durante l'iterazione tramite i metodi remove, set e add.
+ *
+ * <p>
+ * L'iteratore mantiene un cursore che indica la posizione corrente nella lista,
+ * e una variabile lastRet che tiene traccia dell'ultimo elemento restituito da next() o previous().
+ * </p>
+ *
+ * <ul>
+ *   <li>Il metodo {@code hasNext()} restituisce true se ci sono altri elementi successivi.</li>
+ *   <li>Il metodo {@code next()} restituisce l'elemento successivo e avanza il cursore.</li>
+ *   <li>Il metodo {@code hasPrevious()} restituisce true se ci sono elementi precedenti.</li>
+ *   <li>Il metodo {@code previous()} restituisce l'elemento precedente e sposta il cursore indietro.</li>
+ *   <li>Il metodo {@code nextIndex()} restituisce l'indice del prossimo elemento che verrebbe restituito da next().</li>
+ *   <li>Il metodo {@code previousIndex()} restituisce l'indice dell'elemento che verrebbe restituito da previous().</li>
+ *   <li>Il metodo {@code remove()} rimuove l'ultimo elemento restituito da next() o previous().</li>
+ *   <li>Il metodo {@code set(Object o)} sostituisce l'ultimo elemento restituito con l'oggetto specificato.</li>
+ *   <li>Il metodo {@code add(Object o)} inserisce un nuovo elemento nella posizione corrente del cursore.</li>
+ * </ul>
+ *
+ * <p>
+ * Dopo una chiamata a add(), non è possibile chiamare remove() o set() fino a quando non viene effettuata una nuova chiamata a next() o previous().
+ * </p>
+ *
+ * @author Riccardo Buso
+ */
 public class ListAdapterListIterator implements HListIterator {
     private ListAdapter list;
     private int cursor = 0;
