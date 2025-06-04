@@ -40,6 +40,11 @@ public class ListAdapterListIterator implements HListIterator {
         this.cursor = index;
     }
 
+    /**
+     * Restituisce {@code true} se ci sono altri elementi successivi.
+     *
+     * @return {@code true} se ci sono altri elementi, {@code false} altrimenti
+     */
     public boolean hasNext() {
         if(cursor < list.size()){
             return true;
@@ -58,6 +63,11 @@ public class ListAdapterListIterator implements HListIterator {
         return list.get(cursor++);
     }
 
+    /**
+     * Restituisce {@code true} se ci sono elementi precedenti.
+     *
+     * @return {@code true} se ci sono elementi precedenti, {@code false} altrimenti
+     */
     public boolean hasPrevious() {
         if( cursor > 0) {
             return true;
@@ -75,14 +85,31 @@ public class ListAdapterListIterator implements HListIterator {
         return list.get(cursor);
     }
 
+    /**
+     * Restituisce l'indice del prossimo elemento che verrebbe restituito da {@code next()}.
+     *
+     * @return l'indice del prossimo elemento
+     */
     public int nextIndex() {
         return cursor;
     }
 
+    /**
+     * Restituisce l'indice dell'elemento che verrebbe restituito da {@code previous()}.
+     *
+     * @return l'indice dell'elemento precedente
+     */
     public int previousIndex() {
         return cursor - 1;
     }
 
+    /**
+     * Rimuove l'ultimo elemento restituito da {@code next()} o {@code previous()}.
+     *
+     * @throws IllegalStateException se {@code next()} o {@code previous()} non sono stati chiamati,
+     *         oppure se {@code remove()} o {@code add()} sono già stati chiamati dopo l'ultima chiamata a {@code next()} o {@code previous()}
+     * @throws UnsupportedOperationException se la rimozione non è supportata dalla lista sottostante (mai lanciata da questa implementazione)
+     */
     public void remove() {
         if (lastRet < 0){
              throw new IllegalStateException();
@@ -96,6 +123,17 @@ public class ListAdapterListIterator implements HListIterator {
         lastRet = -1;
     }
 
+    /**
+     * Sostituisce l'ultimo elemento restituito con l'oggetto specificato.
+     *
+     * @param o il nuovo elemento
+     * @throws IllegalStateException se {@code next()} o {@code previous()} non sono stati chiamati,
+     *         oppure se {@code remove()} o {@code add()} sono già stati chiamati dopo l'ultima chiamata a {@code next()} o {@code previous()}
+     * @throws UnsupportedOperationException se la sostituzione non è supportata dalla lista sottostante (mai lanciata da questa implementazione)
+     * @throws ClassCastException se la classe dell'elemento impedisce la sostituzione (opzionale)
+     * @throws NullPointerException se l'elemento è null e la lista non supporta null (opzionale)
+     * @throws IllegalArgumentException se qualche aspetto dell'elemento impedisce la sostituzione (opzionale)
+     */
     public void set(Object o) {
         if (lastRet < 0) {
             // se lastRet è invalido, non si può impostare
@@ -105,6 +143,15 @@ public class ListAdapterListIterator implements HListIterator {
         list.set(lastRet, o);
     }
 
+    /**
+     * Inserisce un nuovo elemento nella posizione corrente del cursore.
+     *
+     * @param o l'elemento da aggiungere
+     * @throws UnsupportedOperationException se l'aggiunta non è supportata dalla lista sottostante (mai lanciata da questa implementazione)
+     * @throws ClassCastException se la classe dell'elemento impedisce l'aggiunta (opzionale)
+     * @throws NullPointerException se l'elemento è null e la lista non supporta null (opzionale)
+     * @throws IllegalArgumentException se qualche aspetto dell'elemento impedisce l'aggiunta (opzionale)
+     */
     public void add(Object o) {
         list.add(cursor++, o);
         // dopo l'aggiunta, l'ultimo elemento restituito viene invalidato, per rispettare le specifiche 

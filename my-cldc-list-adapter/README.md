@@ -26,7 +26,11 @@ This project provides an adapter for the Java 1.4.2 List interface, implemented 
 
 ## Usage
 
-To compile and run the tests, ensure that the JUnit library is included in your classpath. You can execute the `TestRunner` class from the command line to run all tests and view the results.
+To compile and run the tests, ensure that the JUnit library is included in your classpath. You can execute the `TestRunner` class from the command line ,
+with :
+"javac -d FileClass -cp "JUnit/junit-4.13.2.jar;JUnit/hamcrest-core-1.3.jar" myAdapter/*.java myTest/*.java"
+,to run all tests and view the results.
+
 
 ## Documentation
 

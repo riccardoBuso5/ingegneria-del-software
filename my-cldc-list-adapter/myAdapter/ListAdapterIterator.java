@@ -1,3 +1,5 @@
+package myAdapter;
+
 /**
  * Implementazione dell'interfaccia {@code HIterator} per la classe {@link ListAdapter}.
  * Questo iteratore consente l'accesso sequenziale agli elementi di un {@code ListAdapter} e supporta la rimozione degli elementi.
@@ -8,72 +10,59 @@
  *
  * @author Riccardo Buso
  */
-
-/**
- * Costruisce un nuovo {@code ListAdapterIterator} per il {@code ListAdapter} specificato.
- *
- * @param list il {@code ListAdapter} su cui iterare
- */
-
-/**
- * Restituisce {@code true} se l'iterazione ha altri elementi.
- *
- * @return {@code true} se ci sono altri elementi da iterare, {@code false} altrimenti
- */
-
-/**
- * Restituisce il prossimo elemento nell'iterazione.
- *
- * @return il prossimo elemento nell'iterazione
- * @throws java.util.NoSuchElementException se l'iterazione non ha più elementi
- */
-
-/**
- * Rimuove dalla collezione sottostante l'ultimo elemento restituito da questo iteratore.
- * Questo metodo può essere chiamato solo una volta per ogni chiamata a {@link #next()}.
- *
- * @throws IllegalStateException se il metodo {@code next} non è stato ancora chiamato,
- *         oppure se il metodo {@code remove} è già stato chiamato dopo l'ultima chiamata al metodo {@code next}
- */
-// implementazione di HIterator per ListAdapter
-package myAdapter;
-
-
 public class ListAdapterIterator implements HIterator {
     private ListAdapter list;
-    private int cursor = 0;  //indica la posizione del prossimo elemento da restituire
-    private int lastRet = -1; //salva l'ultimo elemento restituito
+    private int cursor = 0;  // indica la posizione del prossimo elemento da restituire
+    private int lastRet = -1; // salva l'ultimo elemento restituito
 
+    /**
+     * Costruisce un nuovo {@code ListAdapterIterator} per il {@code ListAdapter} specificato.
+     *
+     * @param list il {@code ListAdapter} su cui iterare
+     */
     public ListAdapterIterator(ListAdapter list) {
         this.list = list;
     }
 
-    // Controlla se ci sono ancora elementi nella lista
+    /**
+     * Restituisce {@code true} se l'iterazione ha altri elementi.
+     *
+     * @return {@code true} se ci sono altri elementi da iterare, {@code false} altrimenti
+     */
     public boolean hasNext() {
-        if(cursor < list.size()){
-            return true;
-        };
-        return false;
+        return cursor < list.size();
     }
 
-    // se non ci sono più elementi, lancia un'eccezione, e setta l'ultimo elemento restituito come il cursore
+    /**
+     * Restituisce il prossimo elemento nell'iterazione.
+     *
+     * @return il prossimo elemento nell'iterazione
+     * @throws java.util.NoSuchElementException se l'iterazione non ha più elementi
+     */
     public Object next() {
         if (!hasNext()) throw new java.util.NoSuchElementException();
         lastRet = cursor;
         return list.get(cursor++);
     }
 
-    // Rimuove l'ultimo elemento restituito dalla lista
+    /**
+     * Rimuove dalla collezione sottostante l'ultimo elemento restituito da questo iteratore.
+     * Questo metodo può essere chiamato solo una volta per ogni chiamata a {@link #next()}.
+     *
+     * @throws IllegalStateException se il metodo {@code next} non è stato ancora chiamato,
+     *         oppure se il metodo {@code remove} è già stato chiamato dopo l'ultima chiamata al metodo {@code next}
+     * @throws UnsupportedOperationException se il metodo {@code remove} non è supportato dalla lista sottostante (mai lanciata da questa implementazione)
+     */
     public void remove() {
         if (lastRet < 0) {
             throw new IllegalStateException();
         }
         list.remove(lastRet);
-        //se l'ultimo elemento rimosso si trova prima del cursore, decremento il cursore, perchè è shiftata tutta la lista
+        // se l'ultimo elemento rimosso si trova prima del cursore, decremento il cursore, perchè è shiftata tutta la lista
         if (lastRet < cursor) {
             cursor--;
-        };
-        //invalido l'ultimo elemento restituito perchè è stato rimosso
+        }
+        // invalido l'ultimo elemento restituito perchè è stato rimosso
         lastRet = -1;
     }
 }
