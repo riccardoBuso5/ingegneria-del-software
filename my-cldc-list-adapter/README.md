@@ -1,37 +1,81 @@
 # My CLDC List Adapter
 
-This project provides an adapter for the Java 1.4.2 List interface, implemented using the Vector class from the CLDC 1.1 environment. The adapter allows for the use of Java Collections Framework features in a constrained environment, ensuring compatibility with the specified Java version.
+Questo progetto fornisce un adattatore per l’interfaccia `List` di Java 1.4.2, implementato tramite la classe `Vector` dell’ambiente CLDC 1.1. L’adattatore permette di utilizzare le funzionalità del Java Collections Framework anche in ambienti con risorse limitate, garantendo compatibilità con la versione specificata di Java.
 
-## Project Structure
+---
 
-- **myAdapter/**: Contains the adapter implementation and interfaces.
-  - `HCollection.java`: Defines methods from the Collection interface.
-  - `HIterator.java`: Defines methods from the Iterator interface.
-  - `HList.java`: Extends HCollection and defines methods from the List interface.
-  - `HListIterator.java`: Extends HIterator and defines methods from the ListIterator interface.
-  - `ListAdapter.java`: Implements HList and HCollection, adapting Vector functionality.
-  - `package-info.java`: Package documentation.
+## Struttura del Progetto
 
-- **myTest/**: Contains unit tests for the adapter.
-  - `ListAdapterTest.java`: Unit tests for ListAdapter.
-  - `HIteratorTest.java`: Unit tests for HIterator.
-  - `HListIteratorTest.java`: Unit tests for HListIterator.
-  - `TestRunner.java`: Executes all tests and reports results.
-  - `package-info.java`: Package documentation.
+- **myAdapter/**  
+  Contiene le interfacce e le implementazioni principali:
+  - `HCollection.java`: Interfaccia ispirata a `Collection`.
+  - `HIterator.java`: Interfaccia ispirata a `Iterator`.
+  - `HList.java`: Estende `HCollection` e aggiunge i metodi di `List`.
+  - `HListIterator.java`: Estende `HIterator` e aggiunge i metodi di `ListIterator`.
+  - `ListAdapter.java`: Implementazione di `HList` e `HCollection` tramite `Vector`.
+  - `ListAdapterIterator.java`, `AdapterListIterator.java`: Implementazioni degli iteratori.
+  - `package-info.java`: Documentazione del package.
 
-- **JUnit/**: Contains the JUnit library required for testing.
-  - `junit-3.8.1.jar`: JUnit library.
+- **myTest/**  
+  Contiene i test unitari e il runner:
+  - `ListAdapterTest.java`: Test per `ListAdapter`.
+  - `HIteratorTest.java`: Test per `HIterator`.
+  - `HListIteratorTest.java`: Test per `HListIterator`.
+  - `TestRunner.java`: Esegue tutti i test e mostra i risultati.
+  - `package-info.java`: Documentazione del package.
 
-- **javadoc/**: Contains generated documentation in Javadoc and PDF formats.
+- **lib/**  
+  Contiene le librerie JUnit necessarie per il testing:
+  - `junit-4.13.2.jar`
+  - `hamcrest-core-1.3.jar`
 
-## Usage
+- **fileclass/**  
+  Cartella di output per i file `.class` compilati.
 
-To compile and run the tests, ensure that the JUnit library is included in your classpath. You can execute the `TestRunner` class from the command line ,
-with :
-"javac -d FileClass -cp "JUnit/junit-4.13.2.jar;JUnit/hamcrest-core-1.3.jar" myAdapter/*.java myTest/*.java"
-,to run all tests and view the results.
+- **doc/**  
+  Documentazione generata tramite Javadoc.
 
+---
 
-## Documentation
+## Compilazione ed Esecuzione dei Test
 
-Detailed documentation for the adapter and its components can be found in the `doc/` directory, generated using Javadoc.
+Assicurati di avere Java (1.4.2 o superiore) e JUnit 4 nella cartella `lib/`.
+
+1. **Compila tutto il progetto**:
+
+   ```sh
+   javac -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" -d fileclass myAdapter/*.java myTest/*.java
+   ```
+
+2. **Esegui i test**:
+
+   ```sh
+   java -cp "fileclass;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" myTest.TestRunner
+   ```
+
+   > Su Linux/macOS usa `:` invece di `;` come separatore nel classpath.
+
+---
+
+## Generazione della Documentazione
+
+Per generare la documentazione Javadoc:
+
+```sh
+javadoc -d doc -cp ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" myAdapter/*.java myTest/*.java
+```
+
+La documentazione sarà disponibile nella cartella `doc/` (`doc/index.html`).
+
+---
+
+## Note
+
+- Progettato per ambienti embedded o con risorse limitate.
+- Compatibile con Java 1.4.2 e CLDC 1.1.
+- Per dettagli sulle eccezioni e sulle funzionalità, consulta la documentazione Javadoc generata.
+
+---
+
+**Autore:**  
+Riccardo Buso
