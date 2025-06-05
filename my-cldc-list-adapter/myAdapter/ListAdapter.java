@@ -96,7 +96,7 @@ public class ListAdapter implements HList {
      * @return un {@code HListIterator} per iterare sugli elementi della lista
      */
     public HListIterator listIterator() {
-        return new ListAdapterListIterator(this, 0);
+        return new AdapterListIterator(this, 0);
     }
 
     /**
@@ -107,7 +107,7 @@ public class ListAdapter implements HList {
      * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index < 0 || index > size())
      */
     public HListIterator listIterator(int index) {
-        return new ListAdapterListIterator(this, index);
+        return new AdapterListIterator(this, index);
     }
 
     /**
@@ -217,7 +217,7 @@ public class ListAdapter implements HList {
      * @return un {@code HIterator} per iterare sugli elementi della lista
      */
     public HIterator iterator() {
-        return new ListAdapterIterator(this);
+        return new AdapterIterator(this);
     }
 
     /**

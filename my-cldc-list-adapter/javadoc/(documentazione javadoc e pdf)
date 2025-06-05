@@ -1,3 +1,0 @@
-/doc/(documentazione javadoc e pdf)
-
-This directory is intended to contain the generated documentation in Javadoc format and any additional documentation in PDF format. Please ensure to run the Javadoc tool to generate the HTML documentation from the source code, and include any relevant PDF documents that provide further details about the project, its structure, and usage instructions.

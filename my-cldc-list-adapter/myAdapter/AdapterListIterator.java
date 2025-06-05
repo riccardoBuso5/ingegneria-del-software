@@ -5,7 +5,7 @@ package myAdapter;
 /**
  * Implementazione di un iteratore bidirezionale per la classe ListAdapter.
  * Questa classe permette di scorrere la lista sia in avanti che all'indietro,
- * e di modificare la lista durante l'iterazione tramite i metodi remove, set e add.
+ * e di modificarla durante l'iterazione tramite i metodi remove, set e add.
  *
  * <p>
  * L'iteratore mantiene un cursore che indica la posizione corrente nella lista,
@@ -30,12 +30,18 @@ package myAdapter;
  *
  * @author Riccardo Buso
  */
-public class ListAdapterListIterator implements HListIterator {
+public class AdapterListIterator implements HListIterator {
     private ListAdapter list;
     private int cursor = 0;
     private int lastRet = -1; //ultimo elemento restituito
 
-    public ListAdapterListIterator(ListAdapter list, int index) {
+    /**
+     * Costruisce un nuovo AdapterListIterator per la lista specificata, posizionando il cursore all'indice dato.
+     *
+     * @param list la lista da iterare
+     * @param index la posizione iniziale del cursore
+     */
+    public AdapterListIterator(ListAdapter list, int index) {
         this.list = list;
         this.cursor = index;
     }
@@ -44,6 +50,7 @@ public class ListAdapterListIterator implements HListIterator {
      * Restituisce {@code true} se ci sono altri elementi successivi.
      *
      * @return {@code true} se ci sono altri elementi, {@code false} altrimenti
+     * @implNote Questo metodo non lancia mai eccezioni.
      */
     public boolean hasNext() {
         if(cursor < list.size()){
@@ -67,6 +74,7 @@ public class ListAdapterListIterator implements HListIterator {
      * Restituisce {@code true} se ci sono elementi precedenti.
      *
      * @return {@code true} se ci sono elementi precedenti, {@code false} altrimenti
+     * @implNote Questo metodo non lancia mai eccezioni.
      */
     public boolean hasPrevious() {
         if( cursor > 0) {
@@ -89,6 +97,7 @@ public class ListAdapterListIterator implements HListIterator {
      * Restituisce l'indice del prossimo elemento che verrebbe restituito da {@code next()}.
      *
      * @return l'indice del prossimo elemento
+     * @implNote Questo metodo non lancia mai eccezioni.
      */
     public int nextIndex() {
         return cursor;
@@ -98,6 +107,7 @@ public class ListAdapterListIterator implements HListIterator {
      * Restituisce l'indice dell'elemento che verrebbe restituito da {@code previous()}.
      *
      * @return l'indice dell'elemento precedente
+     * @implNote Questo metodo non lancia mai eccezioni.
      */
     public int previousIndex() {
         return cursor - 1;

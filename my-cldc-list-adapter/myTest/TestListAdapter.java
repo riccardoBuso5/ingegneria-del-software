@@ -17,7 +17,7 @@ import org.junit.runner.notification.Failure;
  * <b>Pre-Condition:</b> La lista è vuota prima di ogni test.<br>
  * <b>Post-Condition:</b> La lista si trova nello stato atteso dopo ogni operazione.<br>
  */
-public class ListAdapterTest {
+public class TestListAdapter {
 
     private ListAdapter list;
 
@@ -372,7 +372,7 @@ public class ListAdapterTest {
      */
     public static void run() {
         long start = System.currentTimeMillis();
-        Result result = JUnitCore.runClasses(ListAdapterTest.class);
+        Result result = JUnitCore.runClasses(TestListAdapter.class);
         long end = System.currentTimeMillis();
         System.out.println("====================================");
         System.out.println("Risultati dei test ListAdapterTest:");

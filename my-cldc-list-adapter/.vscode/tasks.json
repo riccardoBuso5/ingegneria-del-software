@@ -28,6 +28,17 @@
                 "myTest.ListAdapterTest"
             ],
             "dependsOn": "javac build (con junit)"
+        },
+        {
+            "label": "java run AdpaterIteratorTest",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-cp",
+                "fileclass",
+                "myTest.AdpaterIteratorTest"
+            ],
+            "dependsOn": "javac build (con junit)"
         }
     ]
 }

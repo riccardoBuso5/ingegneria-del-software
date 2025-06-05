@@ -10,7 +10,7 @@ package myAdapter;
  *
  * @author Riccardo Buso
  */
-public class ListAdapterIterator implements HIterator {
+public class AdapterIterator implements HIterator {
     private ListAdapter list;
     private int cursor = 0;  // indica la posizione del prossimo elemento da restituire
     private int lastRet = -1; // salva l'ultimo elemento restituito
@@ -20,7 +20,7 @@ public class ListAdapterIterator implements HIterator {
      *
      * @param list il {@code ListAdapter} su cui iterare
      */
-    public ListAdapterIterator(ListAdapter list) {
+    public AdapterIterator(ListAdapter list) {
         this.list = list;
     }
 
@@ -28,6 +28,7 @@ public class ListAdapterIterator implements HIterator {
      * Restituisce {@code true} se l'iterazione ha altri elementi.
      *
      * @return {@code true} se ci sono altri elementi da iterare, {@code false} altrimenti
+     * @implNote Questo metodo non lancia mai eccezioni.
      */
     public boolean hasNext() {
         return cursor < list.size();
