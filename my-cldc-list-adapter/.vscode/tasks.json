@@ -4,23 +4,30 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "javac build (con junit)",
             "type": "shell",
-            "command": "msbuild",
+            "command": "javac",
             "args": [
-                // Ask msbuild to generate full paths for file names.
-                "/property:GenerateFullPaths=true",
-                "/t:build",
-                // Do not generate summary otherwise it leads to duplicate errors in Problems panel
-                "/consoleloggerparameters:NoSummary"
+                "-cp",
+                ".;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar",
+                "-d",
+                "fileclass",
+                "myAdapter\\*.java",
+                "myTest\\*.java"
             ],
-            "group": "build",
-            "presentation": {
-                // Reveal the output only if unrecognized errors occur.
-                "reveal": "silent"
-            },
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
-            "problemMatcher": "$msCompile"
+            "group": "build"
+        },
+        {
+            "label": "java test (JUnit)",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "-cp",
+                "fileclass;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar",
+                "org.junit.runner.JUnitCore",
+                "myTest.ListAdapterTest"
+            ],
+            "dependsOn": "javac build (con junit)"
         }
     ]
 }

@@ -1,12 +1,13 @@
 package myTest;
 
-import myAdapter.ListAdapter;
-
+import myAdapter.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.junit.runner.Result;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.notification.Failure;
+
+
 
 /**
  * Test case per la classe ListAdapter.
@@ -66,7 +67,17 @@ public class ListAdapterTest {
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
      */
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetThrowsExceptionForNegativeIndex() {
+        list.add("x");
+        list.get(-1);
+    }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetThrowsExceptionForIndexEqualToSize() {
+        list.add("x");
+        list.get(1);
+    }
     @Test
     public void testGet() {
         list.add("x");
@@ -190,12 +201,18 @@ public class ListAdapterTest {
         assertTrue(list.contains("z"));
     }
 
+    
+
     /**
      * Test della presenza di tutti gli elementi di una collezione.
      * <b>Summary:</b> Verifica che containsAll ritorni true se tutti gli elementi sono presenti.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
      */
+
+     /**
+      * controllo che lanci correttamente IndexOutOfBoundsException se la collezione è maggiore della taglia della lista
+    */
     @Test
     public void testContainsAll() {
         list.add("a");

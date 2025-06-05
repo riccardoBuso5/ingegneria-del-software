@@ -204,7 +204,6 @@ public class ListAdapter implements HList {
      * 
      */
     public boolean containsAll(HCollection c) {
-        if(c.size() > vector.size()) throw  new IndexOutOfBoundsException("la collezione contiene più elementi della lista");
         HIterator it = c.iterator();
         while (it.hasNext()) {
             if (!vector.contains(it.next())) return false;
