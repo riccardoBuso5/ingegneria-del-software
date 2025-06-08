@@ -36,7 +36,7 @@ public class ListAdapter implements HList {
      * @param index posizione in cui inserire l'elemento
      * @param element elemento da inserire
      * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index < 0 || index > size())
-     * @throws UnsupportedOperationException se il metodo add non è supportato
+     * @throws UnsupportedOperationException se l'operazione non è supportata
      * @throws ClassCastException se la classe dell'elemento impedisce l'aggiunta (opzionale)
      * @throws NullPointerException se l'elemento è null e la lista non supporta elementi null (opzionale)
      * @throws IllegalArgumentException se qualche aspetto dell'elemento impedisce l'aggiunta (opzionale)
@@ -45,6 +45,17 @@ public class ListAdapter implements HList {
         vector.insertElementAt(element, index);
     }
 
+    /**
+     * Aggiunge tutti gli elementi della collezione specificata a partire dalla posizione indicata.
+     *
+     * @param index posizione di inserimento iniziale
+     * @param c collezione di elementi da aggiungere
+     * @return {@code true} se la lista è stata modificata
+     * @throws UnsupportedOperationException se l'operazione non è supportata
+     * @throws ClassCastException se la classe di un elemento impedisce l'aggiunta (opzionale)
+     * @throws NullPointerException se la collezione o un elemento è null e la lista non supporta null (opzionale)
+     * @throws IllegalArgumentException se qualche aspetto di un elemento impedisce l'aggiunta (opzionale)
+     */
     //inserisce tutti gli elementi della collezione c a partire dall'indice index
     public boolean addAll(int index, HCollection c) {
         boolean modified = false;
@@ -75,6 +86,8 @@ public class ListAdapter implements HList {
      *
      * @param o elemento da cercare
      * @return indice della prima occorrenza, o -1 se non presente
+     * @throws ClassCastException se il tipo dell'elemento è incompatibile (opzionale)
+     * @throws NullPointerException se l'elemento è null e la lista non supporta null (opzionale)
      */
     public int indexOf(Object o) {
         return vector.indexOf(o);
@@ -85,6 +98,8 @@ public class ListAdapter implements HList {
      *
      * @param o elemento da cercare
      * @return indice dell'ultima occorrenza, o -1 se non presente
+     * @throws ClassCastException se il tipo dell'elemento è incompatibile (opzionale)
+     * @throws NullPointerException se l'elemento è null e la lista non supporta null (opzionale)
      */
     public int lastIndexOf(Object o) {
         return vector.lastIndexOf(o);
@@ -94,6 +109,7 @@ public class ListAdapter implements HList {
      * Restituisce un iteratore per la lista.
      *
      * @return un {@code HListIterator} per iterare sugli elementi della lista
+     * 
      */
     public HListIterator listIterator() {
         return new AdapterListIterator(this, 0);
@@ -143,11 +159,11 @@ public class ListAdapter implements HList {
     }
 
     /**
-     * Restituisce una sottolista tra gli indici specificati.
+     * Restituisce una sottolista tra gli indici specificati (fromIndex incluso, toIndex escluso).
      *
      * @param fromIndex indice iniziale (incluso)
      * @param toIndex indice finale (escluso)
-     * @return una sottolista
+     * @return una sottolista della lista corrente
      * @throws IndexOutOfBoundsException se fromIndex o toIndex sono fuori dai limiti
      * @throws IllegalArgumentException se fromIndex > toIndex
      */
@@ -198,9 +214,6 @@ public class ListAdapter implements HList {
      * @return {@code true} se la lista contiene tutti gli elementi della collezione, {@code false} altrimenti
      * @throws NullPointerException la mia lista supporta anche elementi null
      * @throws ClassCastException accetta qualsiasi tipo di oggetto
-     * @throws UnsupportedOperationException la mia lista supporta operazioni su collezioni
-     * @throws IllegalArgumentException se gli argomenti non sono validi, nel mio caso sono accettati  tutti gli oggetti 
-     * @throws IndexOutOfBoundsException se la collezione contiene indici non validi
      * 
      */
     public boolean containsAll(HCollection c) {
