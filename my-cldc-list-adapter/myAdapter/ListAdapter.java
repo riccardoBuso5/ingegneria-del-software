@@ -403,7 +403,7 @@ public class ListAdapter implements HList {
      * @return una stringa che rappresenta la lista
      */
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuffer sb = new StringBuffer();
         sb.append("[");
         for (int i = 0; i < vector.size(); i++) {
             if (i > 0) sb.append(", ");
