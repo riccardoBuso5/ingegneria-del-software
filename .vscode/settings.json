@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "my-cldc-list-adapter"
+    ],
+    "java.project.referencedLibraries": [
+        "my-cldc-list-adapter\\lib\\hamcrest-core-1.3.jar",
+        "my-cldc-list-adapter\\lib\\junit-4.13.2.jar"
+    ]
+}

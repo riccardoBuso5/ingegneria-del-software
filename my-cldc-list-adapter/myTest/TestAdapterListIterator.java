@@ -37,7 +37,7 @@ public class TestAdapterListIterator {
         assertEquals("C", it.next());
     }
 
-    @Test(expected = java.util.NoSuchElementException.class)
+    @Test(expected = myException.NoSuchElementException.class)
     public void testNextException() {
         it.next();
         it.next();
@@ -60,7 +60,7 @@ public class TestAdapterListIterator {
         assertEquals("A", it.previous());
     }
 
-    @Test(expected = java.util.NoSuchElementException.class)
+    @Test(expected = myException.NoSuchElementException.class)
     public void testPreviousException() {
         it.previous(); // should throw
     }
@@ -87,7 +87,7 @@ public class TestAdapterListIterator {
         assertEquals("B", list.get(0));
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = myException.IllegalStateException.class)
     public void testRemoveException() {
         it.remove(); // should throw
     }
@@ -99,7 +99,7 @@ public class TestAdapterListIterator {
         assertEquals("Z", list.get(0));
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = myException.IllegalStateException.class)
     public void testSetException() {
         it.set("Z"); // should throw
     }

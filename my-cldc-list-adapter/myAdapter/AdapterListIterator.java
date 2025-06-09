@@ -61,7 +61,7 @@ public class AdapterListIterator implements HListIterator {
 
     public Object next() {
         if (!hasNext()) {
-            throw new java.util.NoSuchElementException();
+            throw new myException.NoSuchElementException();
         }else{
             //se ci sono ancora elementi, setto l'ultimo elemento restituito come il cursore
             lastRet = cursor;
@@ -85,7 +85,7 @@ public class AdapterListIterator implements HListIterator {
 
     public Object previous() {
         if (!hasPrevious()){
-             throw new java.util.NoSuchElementException();
+             throw new myException.NoSuchElementException();
         }else {
             //se ci sono elementi precedenti, setto l'ultimo elemento restituito come il cursore e poi lo decremento
             lastRet = --cursor;
@@ -122,7 +122,7 @@ public class AdapterListIterator implements HListIterator {
      */
     public void remove() {
         if (lastRet < 0){
-             throw new IllegalStateException();
+             throw new myException.IllegalStateException();
         }
         //rimuove l'ultimo elemento restituito dalla lista
         list.remove(lastRet);
@@ -147,7 +147,7 @@ public class AdapterListIterator implements HListIterator {
     public void set(Object o) {
         if (lastRet < 0) {
             // se lastRet è invalido, non si può impostare
-            throw new IllegalStateException();
+            throw new myException.IllegalStateException();
         }
         //setta l'ultimo elemento restituito con il nuovo oggetto
         list.set(lastRet, o);

@@ -1,6 +1,5 @@
 //devo usare la classe Vector di cldc per implementare List
 package myAdapter;
-
 import java.util.Vector;
 
 /**

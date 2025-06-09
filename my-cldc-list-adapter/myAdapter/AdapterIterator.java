@@ -41,7 +41,7 @@ public class AdapterIterator implements HIterator {
      * @throws java.util.NoSuchElementException se l'iterazione non ha più elementi
      */
     public Object next() {
-        if (!hasNext()) throw new java.util.NoSuchElementException();
+        if (!hasNext()) throw new myException.NoSuchElementException();
         lastRet = cursor;
         return list.get(cursor++);
     }
@@ -56,7 +56,7 @@ public class AdapterIterator implements HIterator {
      */
     public void remove() {
         if (lastRet < 0) {
-            throw new IllegalStateException();
+            throw new myException.IllegalStateException();
         }
         list.remove(lastRet);
         // se l'ultimo elemento rimosso si trova prima del cursore, decremento il cursore, perchè è shiftata tutta la lista

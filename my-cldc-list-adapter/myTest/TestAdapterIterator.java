@@ -64,7 +64,7 @@ public class TestAdapterIterator {
      * Verifica che il metodo {@code next()} lanci {@code NoSuchElementException} quando non ci sono più elementi.
      * <br><b>Expected:</b> {@code next()} lancia {@code NoSuchElementException} dopo aver iterato tutti gli elementi.
      */
-    @Test(expected = java.util.NoSuchElementException.class)
+    @Test(expected = myException.NoSuchElementException.class)
     public void testNextNoSuchElement() {
         // Testa se next lancia NoSuchElementException quando non ci sono più elementi
         while (iterator.hasNext()) {
@@ -91,7 +91,7 @@ public class TestAdapterIterator {
      * Verifica che il metodo {@code remove()} lanci {@code IllegalStateException} se chiamato prima di {@code next()}.
      * <br><b>Expected:</b> {@code remove()} lancia {@code IllegalStateException} se non è stato chiamato {@code next()}.
      */
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = myException.IllegalStateException.class)
     public void testRemoveIllegalState() {
         // Testa se remove lancia IllegalStateException se non è stato chiamato next()
         iterator.remove(); // Dovrebbe lanciare l'eccezione
