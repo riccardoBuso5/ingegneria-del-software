@@ -1,3 +1,4 @@
+package myAdapter;
 /**
  * L'interfaccia {@code HCollection} rappresenta una collezione di oggetti, 
  * fornendo operazioni di base per aggiungere, rimuovere, verificare la presenza 
@@ -12,10 +13,10 @@
  * conversione in array e iterazione tramite {@code HIterator}.
  * </p>
  * 
- * @author (inserire autore)
- * @version (inserire versione)
+ * @author Riccardo Buso
  */
-package myAdapter;
+
+
 
 
 public interface HCollection {
