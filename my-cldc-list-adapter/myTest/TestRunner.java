@@ -1,22 +1,23 @@
 package myTest;
 
 /**
- * Classe di utility per l'esecuzione dei test delle classi {@link TestListAdapter}, {@link TestAdapterIterator}
- * e {@link TestAdapterListIterator}.
+ * Homework - Test Case
  * <p>
- * Questo runner richiama i metodi statici {@code run()} delle classi di test per eseguire tutti i test
- * definiti nel progetto e mostrare i risultati a console.
+ * <b>Test Case Name:</b> TestRunner<br>
+ * <b>Summary:</b> Classe di utility che esegue in sequenza tutti i test definiti nel package {@code myTest},
+ * richiamando i metodi statici {@code run()} delle classi di test e mostrando i risultati a console.<br>
+ * <b>Test Case Design:</b> Permette di eseguire tutti i test da linea di comando e visualizzare il numero totale di test,
+ * quelli riusciti, quelli falliti e il tempo di esecuzione complessivo.<br>
+ * <b>Pre-condizione:</b> Tutte le classi di test devono essere correttamente compilate e presenti nel classpath.<br>
+ * <b>Post-condizione:</b> Vengono mostrati a console i risultati aggregati dei test.<br>
+ * <b>Test Tools:</b> JUnit 4.13.2<br>
+ * <b>Author:</b> Riccardo Buso
  * </p>
- *
- * <b>Uso:</b><br>
- * Eseguire questa classe per lanciare in sequenza tutti i test principali del progetto.
- *
- * @author Riccardo Buso
  */
 public class TestRunner {
     public static void main(String[] args) {
         TestListAdapter.run();
-        TestAdapterIterator.run(); 
+        TestAdapterIterator.run();
         TestAdapterListIterator.run();
     }
 }

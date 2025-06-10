@@ -216,6 +216,8 @@ public class ListAdapter implements HList {
      * 
      */
     public boolean containsAll(HCollection c) {
+        if(c.size() > vector.size()) return false;
+        if(c.isEmpty()) return true; // Se la collezione è vuota, è sempre contenuta
         HIterator it = c.iterator();
         while (it.hasNext()) {
             if (!vector.contains(it.next())) return false;
