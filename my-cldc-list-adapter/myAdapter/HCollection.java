@@ -1,3 +1,20 @@
+/**
+ * L'interfaccia {@code HCollection} rappresenta una collezione di oggetti, 
+ * fornendo operazioni di base per aggiungere, rimuovere, verificare la presenza 
+ * e iterare sugli elementi. 
+ * <p>
+ * Le implementazioni di questa interfaccia possono imporre restrizioni aggiuntive 
+ * sugli elementi (ad esempio, non permettere valori null o duplicati).
+ * </p>
+ * <p>
+ * I metodi dichiarati permettono di gestire la collezione in modo flessibile, 
+ * supportando operazioni di aggiunta, rimozione, controllo di appartenenza, 
+ * conversione in array e iterazione tramite {@code HIterator}.
+ * </p>
+ * 
+ * @author (inserire autore)
+ * @version (inserire versione)
+ */
 package myAdapter;
 
 

@@ -34,7 +34,7 @@ public class ListAdapter implements HList {
      *
      * @param index posizione in cui inserire l'elemento
      * @param element elemento da inserire
-     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index < 0 || index > size())
+     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index &lt; 0 || index > size())
      * @throws UnsupportedOperationException se l'operazione non è supportata
      * @throws ClassCastException se la classe dell'elemento impedisce l'aggiunta (opzionale)
      * @throws NullPointerException se l'elemento è null e la lista non supporta elementi null (opzionale)
@@ -71,7 +71,7 @@ public class ListAdapter implements HList {
      *
      * @param index indice dell'elemento da restituire
      * @return l'elemento all'indice specificato
-     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index < 0 || index >= size())
+     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index &lt; 0 || index >= size())
      */
     public Object get(int index) {
         if (index < 0 || index >= vector.size()) {
@@ -119,7 +119,7 @@ public class ListAdapter implements HList {
      *
      * @param index indice iniziale
      * @return un {@code HListIterator} per iterare sugli elementi della lista
-     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index < 0 || index > size())
+     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index &lt; 0 || index > size())
      */
     public HListIterator listIterator(int index) {
         return new AdapterListIterator(this, index);
@@ -130,7 +130,7 @@ public class ListAdapter implements HList {
      *
      * @param index indice dell'elemento da rimuovere
      * @return l'elemento rimosso
-     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index < 0 || index >= size())
+     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index &lt; 0 || index >= size())
      * @throws UnsupportedOperationException se il metodo remove non è supportato
      */
     public Object remove(int index) {
@@ -145,7 +145,7 @@ public class ListAdapter implements HList {
      * @param index indice dell'elemento da sostituire
      * @param element nuovo elemento
      * @return l'elemento precedentemente presente all'indice specificato
-     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index < 0 || index >= size())
+     * @throws IndexOutOfBoundsException se l'indice è fuori dai limiti (index &lt; 0 || index >= size())
      * @throws UnsupportedOperationException se il metodo set non è supportato
      * @throws ClassCastException se la classe dell'elemento impedisce la sostituzione (opzionale)
      * @throws NullPointerException se l'elemento è null e la lista non supporta null (opzionale)

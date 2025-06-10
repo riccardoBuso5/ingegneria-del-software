@@ -1,7 +1,8 @@
 package myTest;
 
 /**
- * Homework - Test Case
+ * Classe di utility per l'esecuzione dei test definiti nel package {@code myTest}.
+ * Questa classe contiene il metodo {@code main} che esegue in sequenza i test definiti nelle classi
  * <p>
  * <b>Test Case Name:</b> TestRunner<br>
  * <b>Summary:</b> Classe di utility che esegue in sequenza tutti i test definiti nel package {@code myTest},

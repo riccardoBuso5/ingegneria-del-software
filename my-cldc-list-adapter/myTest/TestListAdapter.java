@@ -9,7 +9,8 @@ import org.junit.runner.notification.Failure;
 
 
 /**
- * Homework - Test Case
+ * Classe di test per {@code ListAdapter}.
+ * Questa classe contiene test unitari per verificare il corretto funzionamento delle operazioni di base su una lista, come l'aggiunta, la rimozione, l'accesso agli elementi e altre funzionalità.
  * <p>
  * <b>Test Case Name:</b> TestListAdapter<br>
  * <b>Summary:</b> Questa classe verifica il corretto funzionamento delle principali operazioni di {@code ListAdapter}:
@@ -40,12 +41,13 @@ public class TestListAdapter {
 
     /**
      * <p>
-     * <p> <summary>Test dell'aggiunta di elementi alla lista.</summary>
+     * <summary>Test dell'aggiunta di elementi alla lista.</summary>
      * <b>Summary:</b> Verifica che l'aggiunta di elementi aumenti la dimensione della lista.<br>
      * <b>Test method desing:</b> Aggiunge due elementi e verifica che la dimensione sia 2.<br>
      * <b>Pre-Condition:</b> Lista vuota.<br>
      * <b>Post-Condition:</b> Lista con 2 elementi.<br>
-     *<b> exptected results:</b> La dimensione della lista deve essere 2 dopo l'aggiunta di due elementi.<br>
+     * <b>exptected results:</b> La dimensione della lista deve essere 2 dopo l'aggiunta di due elementi.<br>
+     * </p>
      */
     @Test
     public void testAddAndSize() {
@@ -56,13 +58,14 @@ public class TestListAdapter {
 
     /**
      * <p>
-     * <p> <summary>Test dell'aggiunta di tutti gli elementi di una collezione alla lista.</summary>
-     * <b>Summary:</b> Verifica che venga aggiunta l'intera collezione alla mia lista, .<br>
+     * <summary>Test dell'aggiunta di tutti gli elementi di una collezione alla lista.</summary>
+     * <b>Summary:</b> Verifica che venga aggiunta l'intera collezione alla mia lista.<br>
      * <b>Test method desing:</b> creo una collezione di 2 elementi, e la aggiungo ad una lista, 
      * alla fine devo avere gli elementi della mia lista + quelli della collezione.<br>
-     * <b>Pre-Condition:</b> collezione non vuota, lista .<br>
+     * <b>Pre-Condition:</b> collezione non vuota, lista.<br>
      * <b>Post-Condition:</b> Lista con 3 elementi.<br>
-     *<b> exptected results:</b> La dimensione della lista deve essere dimensione lista + elementi della collezione dopo l'aggiunta degli elementi.<br>
+     * <b>exptected results:</b> La dimensione della lista deve essere dimensione lista + elementi della collezione dopo l'aggiunta degli elementi.<br>
+     * </p>
      */
     @Test
     public void testAddAll() {
@@ -79,15 +82,16 @@ public class TestListAdapter {
     
     
     /**
-     * Test metodo get con indice negativo.
+     * <p>
+     * <summary>Test metodo get con indice negativo.</summary>
      * <b>Summary:</b> Verifica che get lanci IndexOutOfBoundsException per indice negativo.<br>
      * <b>Test method design:</b> Aggiunge un elemento e verifica che get lanci l'eccezione per indice negativo.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
      * <b>exptected results:</b> L'eccezione IndexOutOfBoundsException deve essere lanciata quando si tenta di accedere a un indice negativo.<br>
      * <b>Note:</b> Questo test verifica che il metodo get gestisca correttamente gli indici negativi.<br>
+     * </p>
      */
-   
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetThrowsExceptionForNegativeIndex() {
         list.add("x");
@@ -95,13 +99,15 @@ public class TestListAdapter {
     }
 
     /**
-     * Test metodo get con indice uguale alla dimensione della lista.
+     * <p>
+     * <summary>Test metodo get con indice uguale alla dimensione della lista.</summary>
      * <b>Summary:</b> Verifica che get lanci IndexOutOfBoundsException per indice uguale alla dimensione della lista.<br>
      * <b>Test method design:</b> Aggiunge un elemento e verifica che get lanci l'eccezione per indice uguale alla dimensione.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
      * <b>exptected results:</b> L'eccezione IndexOutOfBoundsException deve essere lanciata quando si tenta di accedere a un indice uguale alla dimensione della lista.<br>
      * <b>Note:</b> Questo test verifica che il metodo get gestisca correttamente gli indici fuori dai limiti superiori.<br>
+     * </p>
      */
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetThrowsExceptionForIndexEqualToSize() {
@@ -109,12 +115,15 @@ public class TestListAdapter {
         list.get(1);
     }
 
-     /* * Test get 
+    /**
+     * <p>
+     * <summary>Test get</summary>
      * <b>Summary:</b> Verifica che get ritorni l'elemento corretto all'indice specificato.<br>
      * <b>Test method design:</b> Aggiunge un elemento e verifica che get ritorni l'elemento corretto.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> get deve ritornare l'elemento corretto all'indice specificato.<br>
+     * <b>exptected results:</b> get deve ritornare l'elemento corretto all'indice specificato.<br>
+     * </p>
      */
     @Test
     public void testGet() {
@@ -125,13 +134,15 @@ public class TestListAdapter {
     }
 
     /**
-     * Test indexOf e lastIndexOf.
+     * <p>
+     * <summary>Test indexOf e lastIndexOf.</summary>
      * <b>Summary:</b> Verifica che indexOf e lastIndexOf funzionino correttamente.<br>
      * <b>Test method design:</b> Aggiunge elementi e verifica che indexOf ritorni il primo indice e lastIndexOf l'ultimo.<br>
      * <b>Pre-Condition:</b> Lista con almeno 2 elementi.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> indexOf deve ritornare il primo indice dell'elemento, lastIndexOf l'ultimo.<br>
+     * <b>exptected results:</b> indexOf deve ritornare il primo indice dell'elemento, lastIndexOf l'ultimo.<br>
      * <b>Note:</b> indexOf ritorna il primo indice, lastIndexOf l'ultimo.<br>
+     * </p>
      */
     @Test
     public void testIndexOfAndLastIndexOf() {
@@ -144,12 +155,14 @@ public class TestListAdapter {
     }
 
     /**
-     *Test ListIterator.
+     * <p>
+     * <summary>Test ListIterator.</summary>
      * <b>Summary:</b> Verifica che listIterator funzioni correttamente.<br>
      * <b>Test method design:</b> Aggiunge elementi e verifica che l'iteratore ritorni gli elementi nell'ordine corretto.<br>
      * <b>Pre-Condition:</b> Lista con almeno 2 elementi.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> listIterator deve ritornare gli elementi nell'ordine in cui sono stati aggiunti.<br>
+     * <b>exptected results:</b> listIterator deve ritornare gli elementi nell'ordine in cui sono stati aggiunti.<br>
+     * </p>
      */
     @Test
     public void testListIterator() {
@@ -166,14 +179,15 @@ public class TestListAdapter {
         assertFalse(it.hasNext());
     }
 
-
     /**
-     * Test della rimozione di un elemento.
+     * <p>
+     * <summary>Test della rimozione di un elemento.</summary>
      * <b>Summary:</b> Verifica che la rimozione funzioni e la dimensione sia aggiornata.<br>
      * <b>Test method design:</b> Aggiunge due elementi, rimuove il primo e verifica la dimensione e l'elemento rimanente.<br>
      * <b>Pre-Condition:</b> Lista con 2 elementi.<br>
      * <b>Post-Condition:</b> Lista con 1 elemento.<br>
-     * <b> exptected results:</b> La dimensione della lista deve essere 1 dopo la rimozione di un elemento, e l'elemento rimanente deve essere quello atteso.<br>
+     * <b>exptected results:</b> La dimensione della lista deve essere 1 dopo la rimozione di un elemento, e l'elemento rimanente deve essere quello atteso.<br>
+     * </p>
      */
     @Test
     public void testRemove() {
@@ -185,12 +199,14 @@ public class TestListAdapter {
     }
 
     /**
-     * Test della sostituzione di un elemento.
+     * <p>
+     * <summary>Test della sostituzione di un elemento.</summary>
      * <b>Summary:</b> Verifica che set sostituisca correttamente un elemento.<br>
      * <b>Test method design:</b> Aggiunge un elemento, lo sostituisce e verifica il nuovo valore.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Primo elemento sostituito.<br>
-     * <b> exptected results:</b> L'elemento all'indice specificato deve essere sostituito con il nuovo valore.<br>
+     * <b>exptected results:</b> L'elemento all'indice specificato deve essere sostituito con il nuovo valore.<br>
+     * </p>
      */
     @Test
     public void testSet() {
@@ -200,12 +216,14 @@ public class TestListAdapter {
     }
 
     /**
-     * Test della sottolista.
+     * <p>
+     * <summary>Test della sottolista.</summary>
      * <b>Summary:</b> Verifica che subList ritorni una lista corretta.<br>
      * <b>Test method design:</b> Aggiunge tre elementi, crea una sottolista e verifica la dimensione e gli elementi.<br>
      * <b>Pre-Condition:</b> Lista con almeno 3 elementi.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista originale.<br>
-     * <b> exptected results:</b> La sottolista deve contenere gli elementi corretti e la sua dimensione deve essere quella attesa.<br>
+     * <b>exptected results:</b> La sottolista deve contenere gli elementi corretti e la sua dimensione deve essere quella attesa.<br>
+     * </p>
      */
     @Test
     public void testSubList() {
@@ -219,19 +237,14 @@ public class TestListAdapter {
     }
 
     /**
-     * Test size della lista.
-     * già provata sopra.
-    */
-
-    /**
-     * Test isEmpty.
+     * <p>
+     * <summary>Test isEmpty.</summary>
      * <b>Summary:</b> Verifica che isEmpty ritorni true per una lista vuota.<br>
      * <b>Test method design:</b> Controlla che isEmpty ritorni true per una lista vuota e false dopo l'aggiunta di un elemento.<br>
      * <b>Pre-Condition:</b> Lista vuota.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> isEmpty deve ritornare true per una lista vuota e false dopo l'aggiunta di un elemento.<br>
-     * 
-     * 
+     * <b>exptected results:</b> isEmpty deve ritornare true per una lista vuota e false dopo l'aggiunta di un elemento.<br>
+     * </p>
      */
     @Test
     public void testIsEmpty() {
@@ -241,12 +254,14 @@ public class TestListAdapter {
     }
 
     /**
-     * Test della presenza di un elemento.
+     * <p>
+     * <summary>Test della presenza di un elemento.</summary>
      * <b>Summary:</b> Verifica che contains ritorni true per un elemento presente.<br>
      * <b>Test method design:</b> Aggiunge un elemento e verifica che contains ritorni true per quell'elemento.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> contains deve ritornare true se l'elemento è presente nella lista.<br>
+     * <b>exptected results:</b> contains deve ritornare true se l'elemento è presente nella lista.<br>
+     * </p>
      */
     @Test
     public void testContains() {
@@ -254,16 +269,16 @@ public class TestListAdapter {
         assertTrue(list.contains("z"));
     }
 
-
     /**
-     * Test della presenza di tutti gli elementi di una collezione.
+     * <p>
+     * <summary>Test della presenza di tutti gli elementi di una collezione.</summary>
      * <b>Summary:</b> Verifica che containsAll ritorni true se tutti gli elementi sono presenti.<br>
      * <b>Test method design:</b> Aggiunge due elementi alla lista, crea una collezione con gli stessi elementi e verifica containsAll.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> containsAll deve ritornare true se tutti gli elementi della collezione sono presenti nella lista, altrimenti false.<br>
+     * <b>exptected results:</b> containsAll deve ritornare true se tutti gli elementi della collezione sono presenti nella lista, altrimenti false.<br>
+     * </p>
      */
-
     @Test
     public void testContainsAll() {
         list.add("a");
@@ -277,14 +292,16 @@ public class TestListAdapter {
         assertFalse(list.containsAll(collection));
     }
 
-  /**
-   * test iterator.
-   * <b>Summary:</b> Verifica che l'iteratore funzioni correttamente.<br>
-   * <b>Test method design:</b> Aggiunge due elementi e verifica che l'iteratore ritorni gli elementi nell'ordine corretto.<br>
-   * <b>Pre-Condition:</b> Lista con almeno 2 elementi.<br>
-   * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-   * <b> exptected results:</b> L'iteratore deve ritornare gli elementi nell'ordine in cui sono stati aggiunti.<br>
-   */
+    /**
+     * <p>
+     * <summary>Test iterator.</summary>
+     * <b>Summary:</b> Verifica che l'iteratore funzioni correttamente.<br>
+     * <b>Test method design:</b> Aggiunge due elementi e verifica che l'iteratore ritorni gli elementi nell'ordine corretto.<br>
+     * <b>Pre-Condition:</b> Lista con almeno 2 elementi.<br>
+     * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
+     * <b>exptected results:</b> L'iteratore deve ritornare gli elementi nell'ordine in cui sono stati aggiunti.<br>
+     * </p>
+     */
     @Test
     public void testIterator() {
         list.add("a");
@@ -298,12 +315,14 @@ public class TestListAdapter {
     }
 
     /** 
-     * Test toArray.
+     * <p>
+     * <summary>Test toArray.</summary>
      * <b>Summary:</b> Verifica che toArray ritorni un array con gli elementi della lista.<br>  
      * <b>Test method design:</b> Aggiunge due elementi e verifica che toArray ritorni un array con gli stessi elementi.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> toArray deve ritornare un array con gli elementi della lista nell'ordine in cui sono stati aggiunti.<br>
+     * <b>exptected results:</b> toArray deve ritornare un array con gli elementi della lista nell'ordine in cui sono stati aggiunti.<br>
+     * </p>
      */
     @Test
     public void testToArray() {
@@ -314,13 +333,16 @@ public class TestListAdapter {
         assertEquals("a", array[0]);
         assertEquals("b", array[1]);
     }
+
     /**
-     * Test toArray con array specificato.
+     * <p>
+     * <summary>Test toArray con array specificato.</summary>
      * <b>Summary:</b> Verifica che toArray(Object[] a) funzioni correttamente.<br>
      * <b>Test method design:</b> Aggiunge due elementi e verifica che toArray(Object[] a) ritorni un array con gli stessi elementi.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
-     * <b> exptected results:</b> toArray(Object[] a) deve ritornare un array con gli elementi della lista nell'ordine in cui sono stati aggiunti.<br>
+     * <b>exptected results:</b> toArray(Object[] a) deve ritornare un array con gli elementi della lista nell'ordine in cui sono stati aggiunti.<br>
+     * </p>
      */
     @Test
     public void testToArrayWithSpecifiedArray() {
@@ -333,14 +355,15 @@ public class TestListAdapter {
         assertEquals("b", array[1]);
     }
 
-  
     /**
-     * Test della pulizia della lista.
+     * <p>
+     * <summary>Test della pulizia della lista.</summary>
      * <b>Summary:</b> Verifica che clear rimuova tutti gli elementi.<br>
      * <b>Test method design:</b> Aggiunge due elementi, chiama clear e verifica che la lista sia vuota.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Lista vuota.<br>
-     * <b> exptected results:</b> La dimensione della lista deve essere 0 dopo la chiamata a clear, e non deve contenere gli elementi precedenti.<br>
+     * <b>exptected results:</b> La dimensione della lista deve essere 0 dopo la chiamata a clear, e non deve contenere gli elementi precedenti.<br>
+     * </p>
      */
     @Test
     public void testClear() {
@@ -353,15 +376,16 @@ public class TestListAdapter {
     }
 
     /**
-     * test equals.
+     * <p>
+     * <summary>Test equals.</summary>
      * <b>Summary:</b> Verifica che equals funzioni correttamente tra due liste.<br>
      * <b>Test method design:</b> Crea due liste con gli stessi elementi e verifica che siano considerate uguali, poi modifica una lista e verifica che non siano più uguali.<br>
      * <b>Pre-Condition:</b> Due liste con gli stessi elementi.<br>
      * <b>Post-Condition:</b> Nessuna modifica alle liste.<br>
      * <b>Note:</b> Verifica che due liste con gli stessi elementi siano considerate uguali.<br>
-     * <b> exptected results:</b> Le due liste devono essere considerate uguali se contengono gli stessi elementi, altrimenti false.<br>
+     * <b>exptected results:</b> Le due liste devono essere considerate uguali se contengono gli stessi elementi, altrimenti false.<br>
+     * </p>
      */
-
     @Test
     public void testEquals() {
         ListAdapter list1 = new ListAdapter();
@@ -375,16 +399,15 @@ public class TestListAdapter {
         assertFalse(list1.equals(list2)); // Le liste non sono più uguali
     }
 
-    //inizio test specifici per eccezioni
-
     /**
-     * Test della aggiunta di elementi in una posizione specifica.
+     * <p>
+     * <summary>Test della aggiunta di elementi in una posizione specifica.</summary>
      * <b>Summary:</b> Verifica che add(int index, E element) funzioni correttamente.<br>
      * <b>Test method design:</b> Aggiunge due elementi, poi aggiunge un terzo elemento in una posizione specifica e verifica l'ordine degli elementi.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Elemento aggiunto nella posizione specificata.<br>
-     * <b> exptected results:</b> L'elemento deve essere aggiunto nella posizione specificata, e gli altri elementi devono essere spostati di conseguenza.<br>
-     * 
+     * <b>exptected results:</b> L'elemento deve essere aggiunto nella posizione specificata, e gli altri elementi devono essere spostati di conseguenza.<br>
+     * </p>
      */
     @Test
     public void testAddAtIndex() {
@@ -397,16 +420,15 @@ public class TestListAdapter {
         assertEquals(3, list.size());
     }
 
-
     /**
-     * test aggiunta di elementi null.
-     * verifica che l'aggiunta di un elemento null non causi errori e che la lista lo gestisca correttamente.
+     * <p>
+     * <summary>Test aggiunta di elementi null.</summary>
      * <b>Summary:</b> Verifica che l'aggiunta di un elemento null non causi errori.<br>
      * <b>Test method design:</b> Aggiunge un elemento null alla lista e verifica che la dimensione sia aggiornata correttamente.<br>
      * <b>Pre-Condition:</b> Lista vuota.<br>
      * <b>Post-Condition:</b> Lista contiene un elemento null.<br>
      * <b>exptected results:</b> La dimensione della lista deve essere 1 dopo l'aggiunta di un elemento null, e l'elemento all'indice 0 deve essere null.<br>
-     * 
+     * </p>
      */
     @Test
     public void testAddNullElement() {
@@ -416,20 +438,20 @@ public class TestListAdapter {
     }
 
     /**
-     * test eccezione per indice fuori dai limiti.
+     * <p>
+     * <summary>Test eccezione per indice fuori dai limiti.</summary>
      * <b>Summary:</b> Verifica che venga lanciata un'eccezione IndexOutOfBoundsException quando si tenta di accedere a un indice non valido.<br>
      * <b>Test method design:</b> Aggiunge un elemento e tenta di accedere a un indice non valido, verificando che venga lanciata l'eccezione.<br>
      * <b>Pre-Condition:</b> Lista con almeno 1 elemento.<br>
      * <b>Post-Condition:</b> Nessuna modifica alla lista.<br>
      * <b>exptected results:</b> Deve essere lanciata un'eccezione IndexOutOfBoundsException quando si tenta di accedere a un indice non valido.<br>
+     * </p>
      */
     @Test(expected = IndexOutOfBoundsException.class)
     public void testIndexOutOfBoundsException() {
         list.add("a");
         list.get(1); // Tenta di accedere a un indice non valido (1) in una lista con un solo elemento
     }
-
-
 
     /**
      * Metodo run per eseguire i test e stampare un output visivo, poi andranno uniti tutti in  un file test 

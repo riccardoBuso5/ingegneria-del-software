@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import myAdapter.*;
 
-
 /**
  * Classe di test per {@link AdapterIterator}.
  * <p>
@@ -38,11 +37,11 @@ public class TestAdapterIterator {
 
     /**
      * <p>
-     * <p> summary> Test del metodo {@code hasNext()} </summary>
-     * <b> test method: creo una lista con tre elementi e verifico che {@code hasNext()} restituisca true.</b>
-     * <b> pre-condition: La lista contiene tre elementi. </b>
-     * <b> post-condition: {@code hasNext()} restituisce true per il primo elemento e false dopo aver iterato tutti gli elementi. </b>
-     * <b> expected: {@code hasNext()} restituisce true per il primo elemento e false dopo aver iterato tutti gli elementi. </b>
+     * <summary>Test del metodo {@code hasNext()}</summary>
+     * <b>test method:</b> creo una lista con tre elementi e verifico che {@code hasNext()} restituisca true.<br>
+     * <b>pre-condition:</b> La lista contiene tre elementi.<br>
+     * <b>post-condition:</b> {@code hasNext()} restituisce true per il primo elemento e false dopo aver iterato tutti gli elementi.<br>
+     * <b>expected:</b> {@code hasNext()} restituisce true per il primo elemento e false dopo aver iterato tutti gli elementi.<br>
      * </p>
      */
     @Test
@@ -55,11 +54,11 @@ public class TestAdapterIterator {
 
     /**
      * <p>
-     * <p> summary> Test del metodo {@code next()} </summary>
-     * <b> test method: verifico che {@code next()} restituisca il prossimo elemento correttamente. </b>
-     * <b> pre-condition: L'iteratore è inizializzato e contiene tre elementi. </b>
-     * <b> post-condition: {@code next()} restituisce il prossimo elemento e l'iteratore avanza. </b>
-     * <b> expected: {@code next()} restituisce "Element 1" e "Element 2" nei primi due invocazioni. </b>
+     * <summary>Test del metodo {@code next()}</summary>
+     * <b>test method:</b> verifico che {@code next()} restituisca il prossimo elemento correttamente.<br>
+     * <b>pre-condition:</b> L'iteratore è inizializzato e contiene tre elementi.<br>
+     * <b>post-condition:</b> {@code next()} restituisce il prossimo elemento e l'iteratore avanza.<br>
+     * <b>expected:</b> {@code next()} restituisce "Element 1" e "Element 2" nei primi due invocazioni.<br>
      * </p>
      */
     @Test
@@ -70,12 +69,12 @@ public class TestAdapterIterator {
     }
 
     /**
-     *<p>
-     * <p> summary> Test del metodo {@code next()} quando non ci sono più elementi </summary>
-     * <b> test method: verifico che {@code next()} lanci {@code NoSuchElementException} quando non ci sono più elementi. </b>
-     * <b> pre-condition: L'iteratore ha già iterato tutti gli elementi. </b>
-     * <b> post-condition: {@code next()} lancia {@code NoSuchElementException} quando non ci sono più elementi. </b>
-     * <b> expected: {@code next()} lancia {@code NoSuchElementException} quando non ci sono più elementi. </b>
+     * <p>
+     * <summary>Test del metodo {@code next()} quando non ci sono più elementi</summary>
+     * <b>test method:</b> verifico che {@code next()} lanci {@code NoSuchElementException} quando non ci sono più elementi.<br>
+     * <b>pre-condition:</b> L'iteratore ha già iterato tutti gli elementi.<br>
+     * <b>post-condition:</b> {@code next()} lancia {@code NoSuchElementException} quando non ci sono più elementi.<br>
+     * <b>expected:</b> {@code next()} lancia {@code NoSuchElementException} quando non ci sono più elementi.<br>
      * </p>
      */
     @Test(expected = myException.NoSuchElementException.class)
@@ -89,11 +88,12 @@ public class TestAdapterIterator {
 
     /**
      * <p>
-     * <p> summary> Test del metodo {@code remove()} </summary> 
-     * <b> test method: verifico che {@code remove()} rimuova l'ultimo elemento restituito da {@code next()}. </b>
-     * <b> pre-condition: L'iteratore ha già iterato un elemento. </b>
-     * <b> post-condition: {@code remove()} rimuove l'ultimo elemento restituito da {@code next()}. </b>
-     * <b> expected: {@code remove()} rimuove "Element 1" e la lista contiene solo "Element 2" e "Element 3". </b>
+     * <summary>Test del metodo {@code remove()}</summary>
+     * <b>test method:</b> verifico che {@code remove()} rimuova l'ultimo elemento restituito da {@code next()}.<br>
+     * <b>pre-condition:</b> L'iteratore ha già iterato un elemento.<br>
+     * <b>post-condition:</b> {@code remove()} rimuove l'ultimo elemento restituito da {@code next()}.<br>
+     * <b>expected:</b> {@code remove()} rimuove "Element 1" e la lista contiene solo "Element 2" e "Element 3".<br>
+     * </p>
      */
     @Test
     public void testRemove() {
@@ -107,11 +107,11 @@ public class TestAdapterIterator {
 
     /**
      * <p>
-     * <p> summary> Test del metodo {@code remove()} senza chiamare {@code next()} </summary>
-     * <b> test method: verifico che {@code remove()} lanci {@code IllegalStateException} se non è stato chiamato {@code next()}. </b>
-     * <b> pre-condition: L'iteratore non ha ancora chiamato {@code next()}. </b>
-     * <b> post-condition: {@code remove()} lancia {@code IllegalStateException} se non è stato chiamato {@code next()}. </b>
-     * <b> expected: {@code remove()} lancia {@code IllegalStateException} se non è stato chiamato {@code next()}. </b>
+     * <summary>Test del metodo {@code remove()} senza chiamare {@code next()}</summary>
+     * <b>test method:</b> verifico che {@code remove()} lanci {@code IllegalStateException} se non è stato chiamato {@code next()}.<br>
+     * <b>pre-condition:</b> L'iteratore non ha ancora chiamato {@code next()}.<br>
+     * <b>post-condition:</b> {@code remove()} lancia {@code IllegalStateException} se non è stato chiamato {@code next()}.<br>
+     * <b>expected:</b> {@code remove()} lancia {@code IllegalStateException} se non è stato chiamato {@code next()}.<br>
      * </p>
      */
     @Test(expected = myException.IllegalStateException.class)
@@ -119,13 +119,14 @@ public class TestAdapterIterator {
         // Testa se remove lancia IllegalStateException se non è stato chiamato next()
         iterator.remove(); // Dovrebbe lanciare l'eccezione
     }
+
     /**
      * <p>
-     * <p> summary> Test del metodo {@code remove()} dopo una chiamata a {@code next()} </summary>
-     * <b> test method: verifico che {@code remove()} funzioni correttamente dopo una chiamata a {@code next()}. </b>
-     * <b> pre-condition: L'iteratore ha già chiamato {@code next()}. </b>
-     * <b> post-condition: {@code remove()} rimuove l'ultimo elemento restituito da {@code next()}. </b>
-     * <b> expected: {@code remove()} rimuove l'ultimo elemento restituito da {@code next()}. </b>
+     * <summary>Test del metodo {@code remove()} dopo una chiamata a {@code next()}</summary>
+     * <b>test method:</b> verifico che {@code remove()} funzioni correttamente dopo una chiamata a {@code next()}.<br>
+     * <b>pre-condition:</b> L'iteratore ha già chiamato {@code next()}.<br>
+     * <b>post-condition:</b> {@code remove()} rimuove l'ultimo elemento restituito da {@code next()}.<br>
+     * <b>expected:</b> {@code remove()} rimuove l'ultimo elemento restituito da {@code next()}.<br>
      * </p>
      */
     public static void run() {
