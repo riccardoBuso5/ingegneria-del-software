@@ -69,6 +69,30 @@ La documentazione sarà disponibile nella cartella `doc/` (`doc/index.html`).
 
 ---
 
+## Testing
+
+Il progetto include una suite di test automatizzati basata su **JUnit 4** per verificare il corretto funzionamento delle classi e delle interfacce implementate.
+
+### Come eseguire i test
+
+1. **Compila il progetto e i test**  
+   Assicurati di aver compilato tutti i file `.java` (vedi sezione "Compilazione" sopra).
+
+2. **Esegui i test**  
+   Da terminale, lancia:
+
+   **Su Windows:**
+   ```sh
+   java -cp "fileclass;lib/junit-4.13.2.jar;lib/hamcrest-core-1.3.jar" myTest.TestRunner
+   ```
+
+   **Su Linux/macOS:**
+   ```sh
+   java -cp "fileclass:lib/junit-4.13.2.jar:lib/hamcrest-core-1.3.jar" myTest.TestRunner
+   ```
+
+---
+
 ## Note
 
 - Progettato per ambienti embedded o con risorse limitate.
